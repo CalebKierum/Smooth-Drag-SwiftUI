@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var proMotionEnabled: Bool = true
+    
     var body: some View {
         VStack {
+            Spacer()
+            
             SmoothDragView {
                 Color.blue
                     .frame(width: 100, height: 100)
@@ -21,6 +26,17 @@ struct ContentView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 22))
             }
+            
+            Spacer()
+            
+            Toggle("Pro Motion Enabled?", isOn: $proMotionEnabled)
+                .onChange(of: proMotionEnabled) { oldValue, newValue in
+                    if newValue {
+                        CADisplayLink.enableProMotion()
+                    } else {
+                        CADisplayLink.disableProMotion()
+                    }
+                }
         }
         .padding()
     }
