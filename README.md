@@ -18,6 +18,6 @@ Normally system components handle this perfectly. A scroll view for example will
 It is important to note many older devices do not support pro motion and pro motion (above 60hz) is disabled if low power mode is enabled.
 
 # Video
-
+This isnt captured well on video. Its best to test this on a real device to feel the significant difference this change makes.
 https://github.com/user-attachments/assets/98bf1418-d227-4fe4-89c6-15cef6887add
 
