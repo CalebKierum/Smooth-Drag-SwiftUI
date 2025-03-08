@@ -11,6 +11,8 @@ struct ContentView: View {
     
     @State var proMotionEnabled: Bool = true
     
+    @State var powerStateMonitor: PowerStateMonitor = PowerStateMonitor()
+    
     var body: some View {
         VStack {
             Spacer()
@@ -37,6 +39,11 @@ struct ContentView: View {
                         CADisplayLink.disableProMotion()
                     }
                 }
+            
+            Text("Low power mode on. Pro motion will not enable")
+                .foregroundStyle(.red)
+                .bold()
+                .opacity(powerStateMonitor.lowPowerEnabled ? 1 : 0)
         }
         .padding()
     }
